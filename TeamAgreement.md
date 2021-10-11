@@ -22,9 +22,9 @@
   + Communication
 + **How can you best utilize these strengths in the execution of your project?**
   + Jenner's ability to come up with features based on his prior experiences and his ability to adapt to how these sources execute their ideas was a gret asset in creating the concept for our project.
-  + Matthew Cho's teamwork made collaborating with her easy as she is willing to wear many hats in order to support the team, and her work is always solid regardless of the task.
-  + Haustin Kimborough is able to pick up on nex concepts quickly, and is great at growing his personal toolset simultaneously.
-  + Patrick Laurion is able to easily coordinate and interpret ideas between team members to ensure everyone is on the same page, foreign concepts/ideas/frameworks to him are able to be understood and visual repsented easily.
+  + Matt is able to use his problem-solving abilities to analyze issues and maintain a quality in the final code. He will use his growth mindset to keep an open-mind towards differing ideas and collaboration.
+  + Haustin Kimborough is able to pick up on new concepts quickly, and is great at growing his personal toolset simultaneously.
+  + Patrick will ensure that our team is able to stay on task with each feature of our project by maintaining open communication and collaborative coding efforts.
   + We have a wide range of technical abilites, front-end and back-end, utilizing individual strengths to cover the full-spectrum of what is needed for project completion. Communicate with team members throughout project time and be flexible to help when and where needed.
 + **In which professional competencies do you each want to develop greater strength?**
   + Jenner Dulce: Leadership, Technical Skills
