@@ -1,7 +1,7 @@
 # Group Project: Team Agreement
 + This will be used as the guideline for how our team will collaborate during project week.
 + This agreement is in place to establish expectations and accountability among the whole group.
-## Team Melodi
+## Team 401d11
 + Jenner Dulce
 + Matthew Cho
 + Patrick Laurion
