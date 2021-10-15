@@ -8,8 +8,10 @@ Recruiter based website/employment service, designed to connect employers with p
 
 ## User Stories
 - As a hiring manager, I want a simple layout of potential employees, so that I can find qualified candidates more efficiently.
-- As a startup looking for employees, I want a way to filter candidates, so that I can find future employees proficient in certain skills.
-- 
+- As a startup looking for employees, I want a wide variety of job-seeking individuals, so that we can hire the best people.
+- As a poor Jr. software developer, I want a way to display my skills/qualifications, so that companies can reach out to me for job opportunities.
+- As a very succesful business, I want a way to filter potential candidates, so that I don't have to look through hundreds of resumes.
+- As a business owner, I want a way to connect with prospecitve employees that meet my qualifications.
 
 ## Domain Modeling
 
