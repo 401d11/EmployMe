@@ -54,3 +54,13 @@ Recruiter based website/employment service, designed to connect employers with p
 
 - [Team Agreement](./TeamAgreement.md)
 - [Requirements](./requirements.md)
+
+- Keep candidatate infor to a minimum
+  - Years of experience
+  - Programming language
+  - Profile Id
+- Business creates page
+  - Capable of sending message to us (website employees)
+  - website acts as a proxy relaying message from business to the candidate of interest
+  - Message will contain business information and message from business
+  - Candidate will have freedom to engage with business or not.
