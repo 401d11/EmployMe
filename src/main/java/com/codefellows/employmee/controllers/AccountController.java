@@ -29,6 +29,10 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Controller
 public class AccountController {
@@ -55,20 +59,26 @@ public class AccountController {
     @GetMapping("/signup/business")
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
-//    @GetMapping("/discover")
-//    public String getDiscoverPage() {return "discover.html";}
-//
-//    @GetMapping("/discover/{candidateID}")
-//    public String getCandidateProfile() {return "discoverCandidate.html";}
+    @GetMapping("/discover")
+    public String getDiscoverPage() {return "discover.html";}
+
+    @GetMapping("/discover/{language}")
+    public String getCanidateByLanguage(Model m, @PathVariable String language) {
+        List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
+        List<Candidate> candidateList = new ArrayList<>();
+        for(Account candidate: filteredCandidates){
+            Candidate currentCandidate = (Candidate) candidate;
+            if(currentCandidate.getLanguage().equals(language)){
+                candidateList.add(currentCandidate);
+            };
+        }
+        m.addAttribute("filteredCandidates", candidateList);
+        return ("/discover");
+    }
 //
 //    @PostMapping("/recruit/{candidateID}")
 //    public String recruitCandidate(){return "recruitForm.html"}
-//
-//    @GetMapping("/account")
-//    public String getAccountPage(Model m, Principal p, @PathVariable String username){
-//
-//    }
-//
+
 
     @PostMapping("/signup/business")
     public RedirectView createBusinessAccount(RedirectAttributes ra, String username,  String password, String email, String phone, String company) {

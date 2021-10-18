@@ -5,9 +5,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Discover</title>
 </head>
 <body>
-    <h1>Discover Candidates Page</h1>
+    <form action="/discover" method="get">
+        <label for="language">Primary Programming Language</label>
+        <input type="text" name="language">
+        <input type="submit" value="Find Candidates">
+    </form>
+    <div class="card" action="/recruitForm" method="get">
+        <div class="card-body">
+            <h2></h2>
+        </div>
+    </div>
 </body>
 </html>
