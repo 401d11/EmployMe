@@ -1,5 +1,6 @@
 package com.codefellows.employmee.configs;
 
+import com.codefellows.employmee.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,10 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    // Repository i.e. ApplicationUserRepository applicationUserRepository;
+    AccountRepository accountRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return // i.e applicationUserRepository.findByUsername(username);
+        return accountRepository.findByUsername(username);
     }
 }
