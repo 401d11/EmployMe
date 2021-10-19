@@ -1,0 +1,31 @@
+http://localhost:8080/css/header.css
+
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+#main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6em;
+    padding: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#main-header h3 {
+    list-style-type: none;
+    font-size: calc(1.3rem + .6vw)
+}
+
+#main-header ul {
+    list-style-type: none;
+}
+
+#main-header ul li {
+    display: inline;
+    margin-right: 1em;
+    font-size: 2em
+}
