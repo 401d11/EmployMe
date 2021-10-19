@@ -152,7 +152,7 @@ public class AccountController {
         System.out.println(candidateId);
         Account deleteThisAccount = accountRepository.getById(candidateId);
         Account currentAccount = accountRepository.findByUsername(p.getName());
-        currentAccount.getCandidates().remove(deleteThisAccount);
+        currentAccount.getCandidates().removeIf(s -> s.getId().equals(candidateId));
         accountRepository.save(currentAccount);
         return new RedirectView("/profile");
     }
