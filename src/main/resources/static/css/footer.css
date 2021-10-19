@@ -1,0 +1,11 @@
+#footer-fragment {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background-color: #eee
+}
+
+footer {
+ padding: 2em;
+}
+

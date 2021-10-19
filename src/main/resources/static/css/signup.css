@@ -1,0 +1,25 @@
+#signup-body {
+ font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#signup-main {
+    margin: auto;
+    margin-top: 10em;
+}
+
+#signup-main h3 {
+    margin: auto;
+    margin-bottom: 10em;
+}
+
+#signup-choices {
+    display: flex;
+    align-items: center;
+    justify-content: space-around
+}
