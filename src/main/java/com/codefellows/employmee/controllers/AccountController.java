@@ -53,7 +53,7 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage() throws IOException {
-        s//endEmail();
+        //endEmail();
         return "index.html";
     }
 

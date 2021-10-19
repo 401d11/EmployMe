@@ -203,6 +203,16 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Etc
+build
+.gradle
+.idea
+out
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
 # IDE
 **/.vscode/
 **/.settings/
