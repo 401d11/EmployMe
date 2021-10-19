@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-    <nav th:replace="/fragments/header :: main-header"></nav>
+    <nav th:replace="fragments/header :: main-header"></nav>
 </header>
 <main>
     <form action="/discover" method="get">
@@ -37,7 +37,7 @@
         </div>
     </div>
 </main>
-<footer th:replace="/fragments/footer :: foot-fragment">
+<footer th:replace="fragments/footer :: foot-fragment">
 </footer>
 </body>
 </html>

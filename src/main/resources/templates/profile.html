@@ -11,14 +11,16 @@
     <title>Profile</title>
 </head>
 <body>
+<header>
     <h1>Business Profile Page</h1>
     <h3 th:if="${username != null}" th:text="${'Hello, ' + username}"></h3>
     <a href="/logout">Logout</a>
+</header>
+<main>
     <div>
         <p th:text="${'Company Name: ' + currentAccount.getCompanyName()}"></p>
         <p th:text="${'Contact Email: ' + currentAccount.getEmail()}"></p>
         <p th:text="${'Phone Number: ' + currentAccount.getPhone()}"></p>
-
     </div>
 
     <ul th:each="candidate: ${currentAccount.getCandidates()}">
@@ -26,8 +28,8 @@
         <li th:text="candidate.bio"></li>
 <!--        <input type="submit" value="Remove this candidate">-->
     </ul>
-
-</body>
-<footer th:replace="/fragments/footer :: foot-fragment">
+</main>
+<footer th:replace="fragments/footer :: foot-fragment">
 </footer>
+</body>
 </html>

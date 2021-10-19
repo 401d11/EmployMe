@@ -49,7 +49,7 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage() throws IOException {
-//        sendEmail();
+
         return "index.html";
     }
 
