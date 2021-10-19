@@ -5,9 +5,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Candidate Profile Page</title>
+    <title>My Profile Page</title>
 </head>
 <body>
-    <h1>Candidate Profile Page</h1>
+    <h1>Business Profile Page</h1>
+    <h3 th:if="${username != null}" th:text="${'Hello, ' + username}"></h3>
+    <a href="/logout">Logout</a>
+    <div>
+        <p th:text="${'Company Name: ' + currentAccount.getCompanyName()}"></p>
+        <p th:text="${'Contact Email: ' + currentAccount.getEmail()}"></p>
+        <p th:text="${'Phone Number: ' + currentAccount.getPhone()}"></p>
+
+    </div>
+
+<!--    TODO: display each candidate with a delete button-->
+<!--    <ul th:each="candidate: ${currentAccount.getCandidates}">-->
+<!--        <li th:text="candidate.id"></li>-->
+<!--        <li th:text="candidate.bio"></li>-->
+<!--        <input type="submit" value="Remove this candidate">-->
+<!--    </ul>-->
+
 </body>
 </html>

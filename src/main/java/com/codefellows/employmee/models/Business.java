@@ -22,4 +22,5 @@ public class Business extends Account {
         this.companyName = companyName;
     }
 
+
 }

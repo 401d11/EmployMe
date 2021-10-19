@@ -21,18 +21,17 @@ public class Account implements UserDetails {
     private boolean isBusiness;
 
     @ManyToMany(mappedBy = "candidates")
-    Set<Business> businesses;
+    Set<Account> businesses;
 
     @ManyToMany
     @JoinTable(
-            name = "businesses_to_candidates",
-            joinColumns = {@JoinColumn(name = "businesses")},
-            inverseJoinColumns = {@JoinColumn(name = "candidate")}
+            name="businesses_to_candidates",
+            joinColumns={@JoinColumn(name="businesses")},
+            inverseJoinColumns={@JoinColumn(name="candidate")}
     )
-    Set<Candidate> candidates;
+    Set<Account> candidates;
 
-    protected Account() {
-    }
+    protected Account(){}
 
     public Account(String username, String password, String email, String phone, boolean isBusiness) {
         this.username = username;
@@ -77,13 +76,15 @@ public class Account implements UserDetails {
         return true;
     }
 
-
-    public boolean isBusiness() {
-        return isBusiness;
+    public Set<Account> getCandidates() {
+        return candidates;
     }
 
-    public Long getId() {
-        return id;
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 }
-
