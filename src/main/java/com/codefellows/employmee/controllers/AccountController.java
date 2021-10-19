@@ -121,25 +121,39 @@ public class AccountController {
 
     @GetMapping("/connect")
     public String getConnect(Principal p, Model m, Long candidateId) {
-        Message newMessage = new Message("title", "descrip", "salary", new Date(), "fulltime", "remote");
-        System.out.println(newMessage.toString());
+    //        Message newMessage = new Message("title", "descrip", "salary", new Date(), "fulltime", "remote");
+    //        System.out.println(newMessage.toString());
         m.addAttribute("candidateId", candidateId);
         return "connect.html";
     }
 
     @PutMapping("/contact-candidate/{candidateId}")
-    public RedirectView contactCandidate(Principal p, @PathVariable Long candidateId, String jobTitle, String jobDescription, String salaryRange, Date startingDate, String jobType, String jobLocation) throws IOException {
+    public RedirectView contactCandidate(Principal p, @PathVariable Long candidateId, String jobTitle, String jobDescription, String salaryRange, String startingDate, String jobType, String jobLocation) throws IOException {
         if (p == null) {
             throw new IllegalArgumentException("You must be logged in to access this feature");
         }
+        Candidate candidateAccount = (Candidate) accountRepository.findById(candidateId).orElseThrow();
+        Business businessAccount = (Business) accountRepository.findByUsername(p.getName());
 
-        Account candidateAccount = accountRepository.findById(candidateId).orElseThrow();
-        Account businessAccount = accountRepository.findByUsername(p.getName());
         Message newMessage = new Message(jobTitle, jobDescription, salaryRange, startingDate, jobType, jobLocation);
-        sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newMessage.toString());
+        String newString = "Dear " + candidateAccount.getFirstname() + ",\nEmployMee is happy to inform you that " +
+                businessAccount.getCompanyName() +
+                " has contacted us about a job opportunity for you. Please look below for details and TODO.\n\n" +
+                newMessage.toString();
+        sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newString);
 
         businessAccount.getCandidates().add(candidateAccount);
         accountRepository.save(businessAccount);
+        return new RedirectView("/profile");
+    }
+
+    @DeleteMapping("/remove-candidate")
+    public RedirectView removeCandidate(Principal p, Long candidateId) {
+        System.out.println(candidateId);
+        Account deleteThisAccount = accountRepository.getById(candidateId);
+        Account currentAccount = accountRepository.findByUsername(p.getName());
+        currentAccount.getCandidates().remove(deleteThisAccount);
+        accountRepository.save(currentAccount);
         return new RedirectView("/profile");
     }
 

@@ -26,11 +26,11 @@ public class Message {
     String jobTitle;
     String jobDescription;
     String salaryRange;
-    Date startingDate;
+    String startingDate;
     String jobType;
     String jobLocation;
 
-    public Message(String jobTitle, String jobDescription, String salaryRange, Date startingDate, String jobType, String jobLocation) {
+    public Message(String jobTitle, String jobDescription, String salaryRange, String startingDate, String jobType, String jobLocation) {
         this.jobTitle = jobTitle;
         this.jobDescription = jobDescription;
         this.salaryRange = salaryRange;
@@ -65,7 +65,7 @@ public class Message {
         String string = "Job Title: " + jobTitle +
                 "\nJob Description: " + jobDescription +
                 "\nSalary Range: " + salaryRange +
-                "\nStarting Date: " + startingDate.toString() +
+                "\nStarting Date: " + startingDate +
                 "\nJob Type: " + jobType +
                 "\nJob Location: " + jobLocation;
         return string;
@@ -83,7 +83,7 @@ public class Message {
         return salaryRange;
     }
 
-    public Date getStartingDate() {
+    public String getStartingDate() {
         return startingDate;
     }
 

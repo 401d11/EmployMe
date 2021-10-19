@@ -65,4 +65,5 @@ public class Candidate extends Account{
 
     private int yearsOfExperience;
 
+
 }

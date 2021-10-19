@@ -24,11 +24,15 @@
         <p th:text="${'Phone Number: ' + currentAccount.getPhone()}"></p>
     </div>
 
-<!--    <ul th:each="candidate: ${currentAccount.getCandidates()}">-->
-<!--        <li th:text="${candidate.id}"></li>-->
-<!--        <li th:text="${candidate.bio}"></li>-->
-<!--        <input type="submit" value="Remove this candidate">-->
-<!--    </ul>-->
+    <ul th:each="candidate: ${currentAccount.getCandidates()}">
+        <li th:text="${'Candidate ID: ' + candidate.id}"></li>
+        <li th:text="${'Candidate Bio: ' + candidate.bio}"></li>
+
+        <form action="/remove-candidate" th:method="DELETE">
+            <input type="hidden" th:value="${candidate.id}" name="candidateId">
+            <input type="submit" value="Remove this candidate">
+        </form>
+    </ul>
 </main>
 <footer th:replace="fragments/footer :: foot-fragment">
 </footer>
