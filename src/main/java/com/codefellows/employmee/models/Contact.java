@@ -11,13 +11,15 @@ import java.io.IOException;
 //maybe need to make this an entity?
 public class Contact {
   public static void sendEmail(String toAddress, String _subject, String _body) throws IOException {
-    Email from = new Email("haustin.kimbrough@gmail.com");
+    Email from = new Email("haustin.kimbrough@hotmail.com");
     Email to = new Email(toAddress);
     Content content = new Content("text/plain", _body);
     Mail mail = new Mail(from, _subject, to, content);
 
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
+    String env = System.getenv("SENDGRID_API_KEY");
+    System.out.println(env);
     try {
       request.setMethod(Method.POST);
       request.setEndpoint("mail/send");
