@@ -87,4 +87,12 @@ public class Account implements UserDetails {
     public String getPhone() {
         return phone;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public boolean isBusiness() {
+        return isBusiness;
+    }
 }
