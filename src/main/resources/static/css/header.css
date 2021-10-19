@@ -9,6 +9,7 @@ body {
     justify-content: space-between;
     height: 6em;
     padding: 2em;
+    margin-bottom: 2em;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -26,18 +27,3 @@ body {
     margin-right: 1em;
     font-size: 2em
 }
-
-#footer-fragment {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    background-color: #eee
-}
-
-footer {
- position: absolute;
- bottom: 0;
- padding: 2em;
- width: 100%;
-}
-

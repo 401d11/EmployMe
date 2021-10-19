@@ -1,5 +1,6 @@
 body {
     position: relative;
+    font-family: sans-serif;
     min-height: 100vh;
 }
 
@@ -19,12 +20,17 @@ body {
 #hero-banner {
     display: block;
     width: 1400px;
+    margin-bottom: 8em;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
-#blurb-one{
+#blurb-one {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5em;
 }
 
 #blurb-one img{
@@ -35,16 +41,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10em;
 }
 
 #blurb-two img{
     width: 700px
 }
 
+#blurb-one p, #blurb-two p{
+    font-size: 1em;
+    padding: 2em;
+    font-family: sans-serif
+}
+
 #affiliated-companies {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 20em
 }
 
 #affiliated-companies div{

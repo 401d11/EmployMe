@@ -5,13 +5,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
     <title>Document</title>
 </head>
-<body>
-    <h1>Sign Up!</h1>
-    <h3>Are you signing up as a business looking to hire? or are you looking to be a candidate for future job opportunities?</h3>
-    <a href="/signup/business">Sign up as a Business</a>
-    <br>
-    <a href="/signup/candidate">Sign up as a Candidate</a>
+<body id="signup-body">
+<header>
+    <nav th:replace="fragments/header :: main-header"></nav>
+    <a href="/logout">Logout</a>
+</header>
+<main>
+    <div id="signup-main">
+        <h3>Are you signing up as a business looking to hire? or are you looking to be a candidate for future job opportunities?</h3>
+        <div id="signup-choices">
+            <a href="/signup/business">Sign up as a Business</a>
+            <a href="/signup/candidate">Sign up as a Candidate</a>
+        </div>
+    </div>
+</main>
+<footer></footer>
+
 </body>
 </html>
