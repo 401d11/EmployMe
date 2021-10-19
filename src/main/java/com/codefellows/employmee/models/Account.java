@@ -81,5 +81,9 @@ public class Account implements UserDetails {
     public boolean isBusiness() {
         return isBusiness;
     }
+
+    public Long getId() {
+        return id;
+    }
 }
 

@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
@@ -59,11 +57,9 @@ public class AccountController {
     @GetMapping("/signup/business")
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
-    @GetMapping("/discover")
-    public String getDiscoverPage() {return "discover.html";}
 
-    @GetMapping("/discover/{language}")
-    public String getCanidateByLanguage(Model m, @PathVariable String language) {
+    @GetMapping("/discover")
+    public String getCandidateByLanguage(Model m, String language) {
         List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
         List<Candidate> candidateList = new ArrayList<>();
         for(Account candidate: filteredCandidates){

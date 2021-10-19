@@ -9,14 +9,19 @@
     <title>Discover</title>
 </head>
 <body>
-    <form action="/discover" method="get">
+    <form action="/discover" method="post">
         <label for="language">Primary Programming Language</label>
         <input type="text" name="language">
         <input type="submit" value="Find Candidates">
     </form>
-    <div class="card" action="/recruitForm" method="get">
-        <div class="card-body">
-            <h2></h2>
+    <div th:each="candidate : ${filteredCandidates}">
+        <div class="card" action="/recruitForm" method="get">
+            <div class="card-body">
+                <h3 th:text="${candidate.id}"></h3>
+                <h3 th:text="${candidate.yearsOfExperience}"></h3>
+                <p th:text="${candidate.bio}"></p>
+
+            </div>
         </div>
     </div>
 </body>
