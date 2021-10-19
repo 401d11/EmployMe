@@ -20,13 +20,19 @@
         <input type="text" name="language">
         <input type="submit" value="Find Candidates">
     </form>
+
     <div th:each="candidate : ${filteredCandidates}">
         <div class="card" action="/recruitForm" method="get">
             <div class="card-body">
-                <h3 th:text="${candidate.id}"></h3>
-                <h3 th:text="${candidate.yearsOfExperience}"></h3>
-                <p th:text="${candidate.bio}"></p>
+                <h3 th:text="${'ID: ' + candidate.id}"></h3>
+                <h3 th:text="${'Primary Programming Language: ' + candidate.language}"></h3>
+                <h3 th:text="${'Years of Experience: ' + candidate.yearsOfExperience}"></h3>
+                <p th:text="${'Bio: ' + candidate.bio}"></p>
 
+                <form action="/connect" method="GET">
+                    <input type="hidden" th:value="${candidate.id}" name="candidateId">
+                    <input type="submit" value="Contact this Candidate!">
+                </form>
             </div>
         </div>
     </div>
