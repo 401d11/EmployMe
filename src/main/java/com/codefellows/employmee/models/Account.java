@@ -75,4 +75,24 @@ public class Account implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public Set<Account> getCandidates() {
+        return candidates;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public boolean isBusiness() {
+        return isBusiness;
+    }
 }

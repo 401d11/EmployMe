@@ -208,4 +208,5 @@ Temporary Items
 **/.settings/
 
 # End of https://www.gitignore.io/api/java,macos,android,androidstudio
-**markdown-navigator.xml
+**markdown-navigator.xmlsendgrid.env
+sendgrid.env

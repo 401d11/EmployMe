@@ -1,0 +1,72 @@
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+#index-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 1400px;
+    margin: auto;
+}
+
+#index-main > img {
+    display: block;
+}
+
+#hero-banner {
+    display: block;
+    width: 1400px;
+}
+
+#blurb-one{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#blurb-one img{
+    width: 700px
+}
+
+#blurb-two {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#blurb-two img{
+    width: 700px
+}
+
+#affiliated-companies {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#affiliated-companies div{
+    margin-bottom: 1em;
+}
+
+#affiliated-companies h4{
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+#affiliated-companies img {
+    width: 200px;
+    display: block
+}
+
+#apple, #spotify, #starbucks {
+    width: 90px;
+}
+
+#affiliated-companies div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
