@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/*.jar
+web: java $JAVA_OPTS -jar -Dserver.port=$PORT build/libs/employmee-0.0.1-SNAPSHOT.jar
