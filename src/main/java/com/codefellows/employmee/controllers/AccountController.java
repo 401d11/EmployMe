@@ -1,17 +1,12 @@
 package com.codefellows.employmee.controllers;
 
-import com.codefellows.employmee.models.Account;
-import com.codefellows.employmee.models.Business;
-import com.codefellows.employmee.models.Candidate;
-import com.codefellows.employmee.models.Contact;
+import com.codefellows.employmee.models.*;
 import com.codefellows.employmee.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
@@ -34,6 +29,7 @@ import java.security.Principal;
 import com.sendgrid.*;
 import static com.codefellows.employmee.models.Contact.sendEmail;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import static java.util.stream.Collectors.toList;
@@ -53,7 +49,6 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage() throws IOException {
-        //sendEmail();
         return "index.html";
     }
 
@@ -122,6 +117,31 @@ public class AccountController {
         accountRepository.save(newUser);
         authWithHttpServlet(username, password);
         return new RedirectView("/");
+    }
+
+    @GetMapping("/connect")
+    public String getConnect(Principal p, Model m, Long candidateId) {
+        Message newMessage = new Message("title", "descrip", "salary", new Date(), "fulltime", "remote");
+        System.out.println(newMessage.toString());
+        m.addAttribute("candidateId", candidateId);
+        return "connect.html";
+    }
+
+    @PostMapping("/contact-candidate/{candidateId}")
+    public RedirectView contactCandidate(Principal p, @PathVariable Long candidateId, String jobTitle, String jobDescription, String salaryRange, Date startingDate, String jobType, String jobLocation) throws IOException {
+        if (p == null) {
+            throw new IllegalArgumentException("You must be logged in to access this feature");
+        }
+
+        Account candidateAccount = accountRepository.findById(candidateId).orElseThrow();
+        Account businessAccount = accountRepository.findByUsername(p.getName());
+
+        Message newMessage = new Message(jobTitle, jobDescription, salaryRange, startingDate, jobType, jobLocation);
+        sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newMessage.toString());
+
+        businessAccount.getCandidates().add(candidateAccount);
+        accountRepository.save(businessAccount);
+        return new RedirectView("/myprofile");
     }
 
     // Helper class

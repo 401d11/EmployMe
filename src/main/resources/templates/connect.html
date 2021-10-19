@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connect</title>
+</head>
+<body>
+    <h1>Connect to this Candidate!</h1>
+    <form th:action="'/contact-candidate/' + ${candidateId}" method="POST">
+        <label for="jobTitle">Job Title</label>
+        <input type="text" name="jobTitle">
+        <label for="jobDescription">Job Description</label>
+        <textarea name="jobDescription"></textarea>
+        <label for="salaryRange">Salary Range</label>
+        <input type="text" name="salaryRange">
+        <label for="startingDate">Starting Date</label>
+        <input type="date" name="startingDate">
+        <label for="jobType">Job Type</label>
+        <select id="jobType" name="jobType">
+            <option value="fulltime">Fulltime</option>
+            <option value="partime">Partime</option>
+            <option value="intern">Intern</option>
+        </select>
+        <label for="jobLocation">Job Location</label>
+        <select id="jobLocation" name="jobLocation">
+            <option value="in-person">In-Person</option>
+            <option value="remote">Remote Work</option>
+        </select>
+
+        <input type="submit" value="Contact this Candidate!">
+    </form>
+</body>
+</html>
