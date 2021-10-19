@@ -29,6 +29,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class AccountController {
@@ -48,6 +49,9 @@ public class AccountController {
     @GetMapping("/login")
     public String getLoginPage() {return "login.html";}
 
+    @GetMapping("/signup")
+    public String getSignupPage() {return "signup.html";}
+
     @GetMapping("/signup/candidate")
     public String getSignupCandidatePage() {return "signupCandidate.html";}
 
@@ -62,12 +66,19 @@ public class AccountController {
 //
 //    @PostMapping("/recruit/{candidateID}")
 //    public String recruitCandidate(){return "recruitForm.html"}
-//
-//    @GetMapping("/account")
-//    public String getAccountPage(Model m, Principal p, @PathVariable String username){
-//
-//    }
-//
+
+    @GetMapping("/myprofile")
+    public String getAccountPage(Model m, Principal p){
+        if (p != null) {
+            String username = p.getName();
+            m.addAttribute("username", username);
+        }
+        Account currentAccount = accountRepository.findByUsername(p.getName());
+        Set<Account> candidates = currentAccount.getCandidates();
+        m.addAttribute("currentAccount", currentAccount);
+        m.addAttribute("candidates", candidates);
+        return "profile.html";
+    }
 
     @PostMapping("/signup/business")
     public RedirectView createBusinessAccount(RedirectAttributes ra, String username,  String password, String email, String phone, String company) {
@@ -96,7 +107,6 @@ public class AccountController {
         authWithHttpServlet(username, password);
         return new RedirectView("/");
     }
-
 
     // Helper class
     public void authWithHttpServlet (String username, String password){
