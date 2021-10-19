@@ -27,7 +27,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import com.sendgrid.*;
-import static com.codefellows.employmee.models.Contact.sendEmail;
+import static com.codefellows.employmee.models.Message.sendEmail;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,7 +79,7 @@ public class AccountController {
         return ("discover.html");
     }
 
-    @GetMapping("/myprofile")
+    @GetMapping("/profile")
     public String getAccountPage(Model m, Principal p){
         if (p != null) {
             String username = p.getName();
@@ -128,7 +128,7 @@ public class AccountController {
         return "connect.html";
     }
 
-    @PostMapping("/contact-candidate/{candidateId}")
+    @PutMapping("/contact-candidate/{candidateId}")
     public RedirectView contactCandidate(Principal p, @PathVariable Long candidateId, String jobTitle, String jobDescription, String salaryRange, Date startingDate, String jobType, String jobLocation) throws IOException {
         if (p == null) {
             throw new IllegalArgumentException("You must be logged in to access this feature");
@@ -136,13 +136,12 @@ public class AccountController {
 
         Account candidateAccount = accountRepository.findById(candidateId).orElseThrow();
         Account businessAccount = accountRepository.findByUsername(p.getName());
-
         Message newMessage = new Message(jobTitle, jobDescription, salaryRange, startingDate, jobType, jobLocation);
         sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newMessage.toString());
 
         businessAccount.getCandidates().add(candidateAccount);
         accountRepository.save(businessAccount);
-        return new RedirectView("/myprofile");
+        return new RedirectView("/profile");
     }
 
     // Helper class

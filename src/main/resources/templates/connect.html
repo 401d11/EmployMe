@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Connect to this Candidate!</h1>
-    <form th:action="'/contact-candidate/' + ${candidateId}" method="POST">
+    <form th:action="'/contact-candidate/' + ${candidateId}" th:method="PUT">
         <label for="jobTitle">Job Title</label>
         <input type="text" name="jobTitle">
         <label for="jobDescription">Job Description</label>

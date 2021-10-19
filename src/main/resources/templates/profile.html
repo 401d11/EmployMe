@@ -12,8 +12,9 @@
 </head>
 <body>
 <header>
+    <nav th:replace="fragments/header :: main-header"></nav>
     <h1>Business Profile Page</h1>
-    <h3 th:if="${username != null}" th:text="${'Hello, ' + username}"></h3>
+    <h3 th:if="${username != null}" th:text="'Hello, ' + ${username}"></h3>
     <a href="/logout">Logout</a>
 </header>
 <main>
@@ -23,11 +24,11 @@
         <p th:text="${'Phone Number: ' + currentAccount.getPhone()}"></p>
     </div>
 
-    <ul th:each="candidate: ${currentAccount.getCandidates()}">
-        <li th:text="candidate.id"></li>
-        <li th:text="candidate.bio"></li>
+<!--    <ul th:each="candidate: ${currentAccount.getCandidates()}">-->
+<!--        <li th:text="${candidate.id}"></li>-->
+<!--        <li th:text="${candidate.bio}"></li>-->
 <!--        <input type="submit" value="Remove this candidate">-->
-    </ul>
+<!--    </ul>-->
 </main>
 <footer th:replace="fragments/footer :: foot-fragment">
 </footer>

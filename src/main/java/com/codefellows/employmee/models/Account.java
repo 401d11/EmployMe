@@ -23,7 +23,7 @@ public class Account implements UserDetails {
     @ManyToMany(mappedBy = "candidates")
     Set<Account> businesses;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="businesses_to_candidates",
             joinColumns={@JoinColumn(name="businesses")},

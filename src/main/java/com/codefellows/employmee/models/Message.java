@@ -1,10 +1,19 @@
 package com.codefellows.employmee.models;
 
 
+import com.sendgrid.Method;
+import com.sendgrid.Request;
+import com.sendgrid.Response;
+import com.sendgrid.SendGrid;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.IOException;
 import java.util.Date;
 
 @Entity
@@ -28,6 +37,27 @@ public class Message {
         this.startingDate = startingDate;
         this.jobType = jobType;
         this.jobLocation = jobLocation;
+    }
+
+    public static void sendEmail(String toAddress, String _subject, String _body) throws IOException {
+        Email from = new Email("employMeeCandidateHelper@gmail.com");
+        Email to = new Email(toAddress);
+        Content content = new Content("text/plain", _body);
+        Mail mail = new Mail(from, _subject, to, content);
+
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Request request = new Request();
+        try {
+            request.setMethod(Method.POST);
+            request.setEndpoint("mail/send");
+            request.setBody(mail.build());
+            Response response = sg.api(request);
+            System.out.println(response.getStatusCode());
+            System.out.println(response.getBody());
+            System.out.println(response.getHeaders());
+        } catch (IOException ex) {
+            throw ex;
+        }
     }
 
     @Override
