@@ -3,6 +3,7 @@ package com.codefellows.employmee.controllers;
 import com.codefellows.employmee.models.Account;
 import com.codefellows.employmee.models.Business;
 import com.codefellows.employmee.models.Candidate;
+import com.codefellows.employmee.models.Contact;
 import com.codefellows.employmee.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +31,13 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import com.sendgrid.*;
+import static com.codefellows.employmee.models.Contact.sendEmail;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
 import static java.util.stream.Collectors.toList;
+
 
 @Controller
 public class AccountController {
@@ -48,7 +52,10 @@ public class AccountController {
     private HttpServletRequest request;
 
     @GetMapping("/")
-    public String getHomePage() {return "index.html";}
+    public String getHomePage() throws IOException {
+        s//endEmail();
+        return "index.html";
+    }
 
     @GetMapping("/login")
     public String getLoginPage() {return "login.html";}
