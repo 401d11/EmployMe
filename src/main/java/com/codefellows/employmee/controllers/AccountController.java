@@ -49,7 +49,6 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage() throws IOException {
-
         return "index.html";
     }
 
