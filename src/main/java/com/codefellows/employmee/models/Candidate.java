@@ -14,8 +14,8 @@ public class Candidate extends Account{
 
     protected Candidate(){}
 
-    public Candidate(String username, String password, String email, String phone, boolean isBusiness, String firstname, String lastname, String language, String bio, int yearsOfExperience) {
-        super(username, password, email, phone, isBusiness);
+    public Candidate( String username, String password, String email, String phone, boolean isBusiness, String firstname, String lastname, String language, String bio, int yearsOfExperience) {
+        super( username, password, email, phone, isBusiness);
         this.firstname = firstname;
         this.lastname = lastname;
         this.language = language;

@@ -32,8 +32,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import com.sendgrid.*;
-
 import static com.codefellows.employmee.models.Contact.sendEmail;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import static java.util.stream.Collectors.toList;
+
 
 @Controller
 public class AccountController {
@@ -49,12 +53,15 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage() throws IOException {
-        sendEmail();
+        s//endEmail();
         return "index.html";
     }
 
     @GetMapping("/login")
     public String getLoginPage() {return "login.html";}
+
+    @GetMapping("/signup")
+    public String getSignupPage() {return "signup.html";}
 
     @GetMapping("/signup/candidate")
     public String getSignupCandidatePage() {return "signupCandidate.html";}
@@ -62,22 +69,32 @@ public class AccountController {
     @GetMapping("/signup/business")
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
+    @GetMapping("/discover")
+    public String getCandidateByLanguage(Model m, String language) {
+        List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
+        List<Candidate> candidateList = new ArrayList<>();
+        for(Account candidate: filteredCandidates){
+            Candidate currentCandidate = (Candidate) candidate;
+            if(currentCandidate.getLanguage().equals(language)){
+                candidateList.add(currentCandidate);
+            };
+        }
+        m.addAttribute("filteredCandidates", candidateList);
+        return ("discover.html");
+    }
 
-
-//    @GetMapping("/discover")
-//    public String getDiscoverPage() {return "discover.html";}
-//
-//    @GetMapping("/discover/{candidateID}")
-//    public String getCandidateProfile() {return "discoverCandidate.html";}
-//
-//    @PostMapping("/recruit/{candidateID}")
-//    public String recruitCandidate(){return "recruitForm.html"}
-//
-//    @GetMapping("/account")
-//    public String getAccountPage(Model m, Principal p, @PathVariable String username){
-//
-//    }
-//
+    @GetMapping("/myprofile")
+    public String getAccountPage(Model m, Principal p){
+        if (p != null) {
+            String username = p.getName();
+            m.addAttribute("username", username);
+        }
+        Account currentAccount = accountRepository.findByUsername(p.getName());
+        Set<Account> candidates = currentAccount.getCandidates();
+        m.addAttribute("currentAccount", currentAccount);
+        m.addAttribute("candidates", candidates);
+        return "profile.html";
+    }
 
     @PostMapping("/signup/business")
     public RedirectView createBusinessAccount(RedirectAttributes ra, String username,  String password, String email, String phone, String company) {
@@ -106,7 +123,6 @@ public class AccountController {
         authWithHttpServlet(username, password);
         return new RedirectView("/");
     }
-
 
     // Helper class
     public void authWithHttpServlet (String username, String password){
