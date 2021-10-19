@@ -43,8 +43,7 @@ public class AccountController {
     private HttpServletRequest request;
 
     @GetMapping("/")
-    public String getHomePage() {return "index.html";
-    }
+    public String getHomePage() {return "index.html";}
 
     @GetMapping("/login")
     public String getLoginPage() {return "login.html";}
