@@ -2,10 +2,10 @@
 
 **Authors**:
 
-Jenner Dulce [<img src= "./assets/jenner.jpeg" alt="jenner profile pic" width="150"/>](https://github.com/jennerdulce)
-Haustin Kimbrough [<img src= "./assets/haustin.png" alt="haustin profile pic" width="150"/>](https://github.com/hkimbrough22)
-Patrick Laurion [<img src= "./assets/patrick.jpeg" alt="patrick profile pic" width="150"/>](https://github.com/plaurion1989)
-Matt Cho [<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
+[<img alt="jenner profile pic" src="./assets/jenner.jpeg" width="150"/>](https://github.com/jennerdulce)
+[<img alt="haustin profile pic" src="./assets/haustin.png" width="150"/>](https://github.com/hkimbrough22)
+[<img alt="patrick profile pic" src="./assets/patrick.jpeg" width="150"/>](https://github.com/plaurion1989)
+[<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
 
 **Version**: 1.0.0
 
