@@ -18,13 +18,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'com.sendgrid:sendgrid-java:4.7.6'
+	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.29'
+	implementation 'org.postgresql:postgresql:42.2.8'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	implementation 'com.sendgrid:sendgrid-java:4.7.6'
-	implementation 'org.apache.tomcat:tomcat-jdbc:9.0.29'
-	implementation 'org.postgresql:postgresql:42.2.8'
 }
 
 test {
