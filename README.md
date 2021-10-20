@@ -2,10 +2,10 @@
 
 **Authors**:
 
-[<img alt="jenner profile pic" height="175" src="./src/main/resources/static/css/images/jenner.jpeg" width="150"/>](https://github.com/jennerdulce)
-[<img alt="haustin profile pic" height="175" src="./src/main/resources/static/css/images/haustin.png" width="150"/>](https://github.com/hkimbrough22)
-[<img alt="patrick profile pic" height="175" src="./src/main/resources/static/css/images/patrick.jpeg" width="150"/>](https://github.com/plaurion1989)
-[<img alt="matt profile pic" height="175" src="./src/main/resources/static/css/images/matt.jpeg" width="150"/>](https://github.com/MattyCho)
+[<img alt="jenner profile pic" height="175" src="./src/main/resources/static/images/jenner.jpeg" width="150"/>](https://github.com/jennerdulce)
+[<img alt="haustin profile pic" height="175" src="./src/main/resources/static/images/haustin.png" width="150"/>](https://github.com/hkimbrough22)
+[<img alt="patrick profile pic" height="175" src="./src/main/resources/static/images/patrick.jpeg" width="150"/>](https://github.com/plaurion1989)
+[<img alt="matt profile pic" height="175" src="./src/main/resources/static/images/matt.jpeg" width="150"/>](https://github.com/MattyCho)
 
 **Version**: 1.0.0
 
