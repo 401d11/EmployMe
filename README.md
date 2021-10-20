@@ -1,6 +1,7 @@
 # _employMee()
 
 **Authors**: 
+<span>
 ##### Jenner Dulce
 [<img src= "./assets/jenner.jpeg" alt="jenner profile pic" width="150"/>](https://github.com/jennerdulce)
 
@@ -12,6 +13,7 @@
 
 ##### Matt Cho
 [<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
+<span/>
 
 **Version**: 1.0.0
 
