@@ -2,10 +2,10 @@
 
 **Authors**:
 
-[<img alt="jenner profile pic" src="./assets/jenner.jpeg" width="150"/>](https://github.com/jennerdulce)
-[<img alt="haustin profile pic" src="./assets/haustin.png" width="150"/>](https://github.com/hkimbrough22)
-[<img alt="patrick profile pic" src="./assets/patrick.jpeg" width="150"/>](https://github.com/plaurion1989)
-[<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
+[<img alt="jenner profile pic" height="225" src="./assets/jenner.jpeg" width="150"/>](https://github.com/jennerdulce)
+[<img alt="haustin profile pic" height="225" src="./assets/haustin.png" width="150"/>](https://github.com/hkimbrough22)
+[<img alt="patrick profile pic" height="225" src="./assets/patrick.jpeg" width="150"/>](https://github.com/plaurion1989)
+[<img alt="matt profile pic" height="225" src="./assets/matt.jpeg" width="150"/>](https://github.com/MattyCho)
 
 **Version**: 1.0.0
 
