@@ -48,7 +48,11 @@ public class AccountController {
     private HttpServletRequest request;
 
     @GetMapping("/")
-    public String getHomePage() throws IOException {
+    public String getHomePage(Principal p, Model m) throws IOException {
+        if (p != null){
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            m.addAttribute("currentAccount", currentAccount);
+        }
         return "index.html";
     }
 
@@ -84,13 +88,19 @@ public class AccountController {
     @GetMapping("/profile")
     public String getAccountPage(Model m, Principal p){
         if (p != null) {
-            String username = p.getName();
-            m.addAttribute("username", username);
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            if(currentAccount.isBusiness() == true){
+                String username = p.getName();
+                m.addAttribute("username", username);
+                Set<Account> candidates = currentAccount.getCandidates();
+                m.addAttribute("currentAccount", currentAccount);
+                m.addAttribute("candidates", candidates);
+                return "profile.html";
+            } else {
+                m.addAttribute("currentAccount", currentAccount);
+                return "candidateUpdate.html";
+            }
         }
-        Account currentAccount = accountRepository.findByUsername(p.getName());
-        Set<Account> candidates = currentAccount.getCandidates();
-        m.addAttribute("currentAccount", currentAccount);
-        m.addAttribute("candidates", candidates);
         return "profile.html";
     }
 
@@ -124,8 +134,6 @@ public class AccountController {
 
     @GetMapping("/connect")
     public String getConnect(Principal p, Model m, Long candidateId) {
-    //        Message newMessage = new Message("title", "descrip", "salary", new Date(), "fulltime", "remote");
-    //        System.out.println(newMessage.toString());
         m.addAttribute("candidateId", candidateId);
         return "connect.html";
     }
@@ -147,6 +155,20 @@ public class AccountController {
 
         businessAccount.getCandidates().add(candidateAccount);
         accountRepository.save(businessAccount);
+        return new RedirectView("/profile");
+    }
+
+    @PutMapping("/update/{candidateId}")
+    public RedirectView updateCandidate(RedirectAttributes ra, @PathVariable Long candidateId, String username, String firstname,  String lastname, String email, String language, String phone, String bio, int experience) throws IOException {
+        Candidate candidateAccount = (Candidate) accountRepository.findById(candidateId).orElseThrow();
+        candidateAccount.setFirstname(firstname);
+        candidateAccount.setLastname(lastname);
+        candidateAccount.setEmail(email);
+        candidateAccount.setLanguage(language);
+        candidateAccount.setPhone(phone);
+        candidateAccount.setBio(bio);
+        candidateAccount.setYearsOfExperience(experience);
+        accountRepository.save(candidateAccount);
         return new RedirectView("/profile");
     }
 
