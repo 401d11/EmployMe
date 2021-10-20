@@ -81,7 +81,7 @@ public class AccountController {
         if (p != null) {
             Account currentAccount = accountRepository.findByUsername(p.getName());
             m.addAttribute("username", p.getName());
-            m.addAttribute("isBusiness", currentUser.isBusiness());
+            m.addAttribute("isBusiness", currentAccount.isBusiness());
             Set<Account> personalAccountCandidates = currentAccount.getCandidates();
             List<Candidate> listOfCandidates = new ArrayList<>();
             for(Account candidate: personalAccountCandidates){
