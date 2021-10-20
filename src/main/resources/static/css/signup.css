@@ -23,3 +23,7 @@ main {
     align-items: center;
     justify-content: space-around
 }
+
+#bio {
+    height: 500px
+}
