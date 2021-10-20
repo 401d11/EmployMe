@@ -3,20 +3,26 @@ body {
     min-height: 100vh;
 }
 
+header {
+       background-color: black;
+       height: 100px;
+       padding: 25px;
+       margin-bottom: 65px;
+}
+
 #main-header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 5.0em;
     padding: 2em;
     margin-bottom: 2em;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    background-color: black;
+
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 #main-header h3 {
     list-style-type: none;
-    font-size: calc(1.3rem + .6vw)
+    font-size: calc(1.3rem + .6vw);
 }
 
 #main-header ul {
@@ -26,10 +32,20 @@ body {
 #main-header ul li {
     display: inline;
     margin-right: 1em;
-    font-size: 1.2em
+    font-size: 1.2em;
+}
+
+header img {
+    border-radius: 50%;
 }
 
 img {
     padding-top: 25px;
     width: 150px;
+    display: block;
+}
+
+a, a:visited, a:active {
+    color: gray;
+    text-decoration: none;
 }

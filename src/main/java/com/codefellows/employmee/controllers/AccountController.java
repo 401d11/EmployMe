@@ -48,7 +48,10 @@ public class AccountController {
     private HttpServletRequest request;
 
     @GetMapping("/")
-    public String getHomePage() throws IOException {
+    public String getHomePage(Principal p, Model m) throws IOException {
+        if(p != null) {
+        m.addAttribute("username", p.getName());
+        }
         return "index.html";
     }
 
@@ -56,7 +59,11 @@ public class AccountController {
     public String getLoginPage() {return "login.html";}
 
     @GetMapping("/aboutus")
-    public String getAboutUsPage() {return "aboutus.html";}
+    public String getAboutUsPage(Principal p, Model m) {
+        if(p != null){
+            m.addAttribute("username", p.getName());
+        }
+        return "aboutus.html";}
 
     @GetMapping("/signup")
     public String getSignupPage() {return "signup.html";}
@@ -68,7 +75,12 @@ public class AccountController {
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
     @GetMapping("/discover")
-    public String getCandidateByLanguage(Model m, String language) {
+    public String getCandidateByLanguage(Model m, Principal p, String language) {
+        if(p != null) {
+            Account currentUser = accountRepository.findByUsername(p.getName());
+            m.addAttribute("username", p.getName());
+            m.addAttribute("isBusiness", currentUser.isBusiness());
+        }
         List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
         List<Candidate> candidateList = new ArrayList<>();
         for(Account candidate: filteredCandidates){
