@@ -63,6 +63,8 @@ public class AccountController {
     @GetMapping("/aboutus")
     public String getAboutUsPage(Principal p, Model m) {
         if(p != null){
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            m.addAttribute("currentAccount", currentAccount);
             m.addAttribute("username", p.getName());
         }
         return "aboutus.html";}
@@ -80,6 +82,7 @@ public class AccountController {
     public String getCandidateByLanguage(Principal p, Model m, String language) {
         if (p != null) {
             Account currentAccount = accountRepository.findByUsername(p.getName());
+            m.addAttribute("currentAccount", currentAccount);
             m.addAttribute("username", p.getName());
             m.addAttribute("isBusiness", currentAccount.isBusiness());
             Set<Account> personalAccountCandidates = currentAccount.getCandidates();
