@@ -45,7 +45,10 @@ html {
   color: grey;
 }
 
-
+img {
+    border-radius: 50%;
+    margin: auto;
+}
 
 
 
