@@ -38,6 +38,7 @@ class EmploymeeApplicationTests {
 
 		// testing all get routes
 
+
 		@Test
 		void getHomePage() throws Exception {
 			mockMvc.perform(get("/"))
@@ -76,7 +77,7 @@ class EmploymeeApplicationTests {
 					.andDo(print())
 					.andExpect(content().string(containsString("<title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>")))
 					.andExpect(status().isOk());
-		}
+    }
 
 		@Test
 		void getSignupBusinessPage() throws Exception{
@@ -103,7 +104,7 @@ class EmploymeeApplicationTests {
 		}
 
 		@Test
-		void getCandidateByLanguage(){
+		void getCandidateByLanguage() throws Exception{
 			mockMvc.perform(get("/discover"))
 					.andDo(print())
 					.andExpect(content().string(containsString("<title>Discover</title>")))
