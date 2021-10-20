@@ -68,7 +68,16 @@
 
                                 <div class="form-group">
                                     <label for="language">Primary Language</label>
-                                    <input id="language" type="text" class="form-control" name="language" required data-eye>
+                                    <select name="language" id="language">
+                                        <option value="C++">C++</option>
+                                        <option value="C#">C#</option>
+                                        <option value="Java">Java</option>
+                                        <option value="JavaScript">JavaScript
+                                        <option value="Python">Python</option>
+                                        <option value="R">R</option>
+                                        <option value="Ruby">Ruby</option>
+                                        <option value="Swift">Swift</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         Must enter a primary language.
                                     </div>
@@ -92,7 +101,7 @@
 
                                 <div class="form-group">
                                     <label for="bio">Description</label>
-                                    <input id="bio" type="textarea" row="500" class="form-control" name="bio" required data-eye>
+                                    <input id="bio" type="textarea" row="500" class="form-control" name="bio" maxlength="9999" required data-eye>
                                     <div class="invalid-feedback">
                                         Must enter in bio
                                     </div>

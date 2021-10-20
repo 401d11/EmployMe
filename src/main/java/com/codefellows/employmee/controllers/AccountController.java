@@ -25,6 +25,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.*;
 import java.security.Principal;
 import com.sendgrid.*;
 import static com.codefellows.employmee.models.Message.sendEmail;
@@ -49,8 +50,9 @@ public class AccountController {
 
     @GetMapping("/")
     public String getHomePage(Principal p, Model m) throws IOException {
-        if(p != null) {
-        m.addAttribute("username", p.getName());
+        if (p != null){
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            m.addAttribute("currentAccount", currentAccount);
         }
         return "index.html";
     }
@@ -75,11 +77,18 @@ public class AccountController {
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
     @GetMapping("/discover")
-    public String getCandidateByLanguage(Model m, Principal p, String language) {
-        if(p != null) {
-            Account currentUser = accountRepository.findByUsername(p.getName());
+    public String getCandidateByLanguage(Principal p, Model m, String language) {
+        if (p != null) {
+            Account currentAccount = accountRepository.findByUsername(p.getName());
             m.addAttribute("username", p.getName());
             m.addAttribute("isBusiness", currentUser.isBusiness());
+            Set<Account> personalAccountCandidates = currentAccount.getCandidates();
+            List<Candidate> listOfCandidates = new ArrayList<>();
+            for(Account candidate: personalAccountCandidates){
+                Candidate currentCandidate = (Candidate) candidate;
+                listOfCandidates.add(currentCandidate);
+            }
+            m.addAttribute("personalAccountCandidates", listOfCandidates);
         }
         List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
         List<Candidate> candidateList = new ArrayList<>();
@@ -96,13 +105,19 @@ public class AccountController {
     @GetMapping("/profile")
     public String getAccountPage(Model m, Principal p){
         if (p != null) {
-            String username = p.getName();
-            m.addAttribute("username", username);
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            if(currentAccount.isBusiness() == true){
+                String username = p.getName();
+                m.addAttribute("username", username);
+                Set<Account> candidates = currentAccount.getCandidates();
+                m.addAttribute("currentAccount", currentAccount);
+                m.addAttribute("candidates", candidates);
+                return "profile.html";
+            } else {
+                m.addAttribute("currentAccount", currentAccount);
+                return "candidateUpdate.html";
+            }
         }
-        Account currentAccount = accountRepository.findByUsername(p.getName());
-        Set<Account> candidates = currentAccount.getCandidates();
-        m.addAttribute("currentAccount", currentAccount);
-        m.addAttribute("candidates", candidates);
         return "profile.html";
     }
 
@@ -136,8 +151,6 @@ public class AccountController {
 
     @GetMapping("/connect")
     public String getConnect(Principal p, Model m, Long candidateId) {
-    //        Message newMessage = new Message("title", "descrip", "salary", new Date(), "fulltime", "remote");
-    //        System.out.println(newMessage.toString());
         m.addAttribute("candidateId", candidateId);
         return "connect.html";
     }
@@ -149,16 +162,28 @@ public class AccountController {
         }
         Candidate candidateAccount = (Candidate) accountRepository.findById(candidateId).orElseThrow();
         Business businessAccount = (Business) accountRepository.findByUsername(p.getName());
-
         Message newMessage = new Message(jobTitle, jobDescription, salaryRange, startingDate, jobType, jobLocation);
         String newString = "Dear " + candidateAccount.getFirstname() + ",\nEmployMee is happy to inform you that " +
                 businessAccount.getCompanyName() +
-                " has contacted us about a job opportunity for you. Please look below for details and TODO.\n\n" +
+                " has contacted us about a job opportunity for you. Please look below for details and reply to us at: employmeecandidatehelper@gmail.com\n\n" +
                 newMessage.toString();
         sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newString);
-
         businessAccount.getCandidates().add(candidateAccount);
         accountRepository.save(businessAccount);
+        return new RedirectView("/profile");
+    }
+
+    @PutMapping("/update/{candidateId}")
+    public RedirectView updateCandidate(RedirectAttributes ra, @PathVariable Long candidateId, String username, String firstname,  String lastname, String email, String language, String phone, String bio, int experience) throws IOException {
+        Candidate candidateAccount = (Candidate) accountRepository.findById(candidateId).orElseThrow();
+        candidateAccount.setFirstname(firstname);
+        candidateAccount.setLastname(lastname);
+        candidateAccount.setEmail(email);
+        candidateAccount.setLanguage(language);
+        candidateAccount.setPhone(phone);
+        candidateAccount.setBio(bio);
+        candidateAccount.setYearsOfExperience(experience);
+        accountRepository.save(candidateAccount);
         return new RedirectView("/profile");
     }
 

@@ -1,5 +1,7 @@
 package com.codefellows.employmee.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import java.util.Set;
@@ -10,7 +12,10 @@ public class Candidate extends Account{
     private String firstname;
     private String lastname;
     private String language;
+
+    @Type(type = "org.hibernate.type.TextType")
     private String bio;
+    private int yearsOfExperience;
 
     protected Candidate(){}
 
@@ -62,8 +67,6 @@ public class Candidate extends Account{
     public void setYearsOfExperience(int yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
-
-    private int yearsOfExperience;
 
 
 }

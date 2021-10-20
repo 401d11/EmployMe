@@ -18,8 +18,22 @@
 </header>
 <main th:if="${isBusiness}">
     <form id="discover-form" action="/discover" method="get">
-        <label for="language">Primary Programming Language</label>
-        <input type="text" name="language">
+        <div class="form-group">
+            <label for="language">Primary Language</label>
+            <select name="language" id="language">
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript
+                <option value="Python">Python</option>
+                <option value="R">R</option>
+                <option value="Ruby">Ruby</option>
+                <option value="Swift">Swift</option>
+            </select>
+            <div class="invalid-feedback">
+                Must enter a primary language.
+            </div>
+        </div>
         <input type="submit" value="Find Candidates">
     </form>
 
@@ -33,7 +47,7 @@
 
                 <form action="/connect" method="GET">
                     <input type="hidden" th:value="${candidate.id}" name="candidateId">
-                    <input type="submit" value="Contact this Candidate!">
+                    <input th:if="${personalAccountCandidates.contains(candidate) == false}" type="submit" value="Contact this Candidate!">
                 </form>
             </div>
         </div>
