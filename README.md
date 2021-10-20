@@ -13,7 +13,7 @@
 
 ##### Matt Cho
 [<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
-<span/>
+</span>
 
 **Version**: 1.0.0
 
