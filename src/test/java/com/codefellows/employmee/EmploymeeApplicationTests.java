@@ -1,6 +1,7 @@
 package com.codefellows.employmee;
 
 import com.codefellows.employmee.models.Account;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ class EmploymeeApplicationTests {
 	@Autowired
 	MockMvc mockMvc;
 
+	// Black Box testing doesn't look inside the class, but merely checks if it works
+	@Test
+	public void contextLoads(){
+	}
+
 	@Test
 	public void constructorTest() {
 		Account sut = new Account("Test User", "123", "example@example.com", "8007654321", false);
@@ -29,25 +35,79 @@ class EmploymeeApplicationTests {
 		assertEquals(false, sut.isBusiness());
 	}
 
-	@Test
-	void contextLoads() {
+
+		// testing all get routes
+
+		@Test
+		void getHomePage() throws Exception {
+			mockMvc.perform(get("/"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Employmee</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getLoginPage() throws Exception{
+			mockMvc.perform(get("/login"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Employmee Login</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getAboutUsPage() throws Exception{
+			mockMvc.perform(get("/aboutus"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>About Us</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getSignupPage() throws Exception{
+			mockMvc.perform(get("/signup"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Signup</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getSignupCandidatePage() throws Exception{
+			mockMvc.perform(get("/signup/candidate"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getSignupBusinessPage() throws Exception{
+			mockMvc.perform(get("/signup/business"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Employmee Business</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getAccountPage() throws Exception{
+			mockMvc.perform(get("/profile"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Profile</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getConnect() throws Exception{
+			mockMvc.perform(get("/connect"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Connect</title>")))
+					.andExpect(status().isOk());
+		}
+
+		@Test
+		void getCandidateByLanguage(){
+			mockMvc.perform(get("/discover"))
+					.andDo(print())
+					.andExpect(content().string(containsString("<title>Discover</title>")))
+					.andExpect(status().isOk());
+		}
 	}
 
-	@Test
-	public void routeGet() throws Exception {
-		mockMvc.perform(get("/albums"))
-				.andDo(print())
-				.andExpect(content().string(containsString("<h1>Albums</h1>")))
-				.andExpect(status().isOk());
-	}
-
-	@Test
-	public void routePost() throws Exception {
-		mockMvc.perform(post("/")
-						.contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-						.param("title", "Album Title"))
-				.andExpect(content().string(containsString("the response text")));
-	}
-
-
-}
