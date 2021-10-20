@@ -1,6 +1,15 @@
 # _employMee()
 
-**Authors**: Jenner Dulce, Haustin Kimbrough, Patrick Laurion, Matt Cho
+**Authors**: 
+
+[<img src= "./assets/jenner.jpeg" alt="jenner profile pic" width="150"/>](https://github.com/jennerdulce)
+
+
+[<img src= "./assets/haustin.png" alt="haustin profile pic" width="150"/>](https://github.com/hkimbrough22)
+
+[<img src= "./assets/patrick.jpeg" alt="patrick profile pic" width="150"/>](https://github.com/plaurion1989)
+
+[<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
 
 **Version**: 1.0.0
 
