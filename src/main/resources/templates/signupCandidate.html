@@ -35,6 +35,14 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input id="password" type="password" class="form-control" name="password" required data-eye>
+                                    <div class="invalid-feedback">
+                                        Password is required
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="firstname">First Name</label>
                                     <input id="firstname" type="text" class="form-control" name="firstname" required autofocus>
                                     <div class="invalid-feedback">
@@ -55,14 +63,6 @@
                                     <input id="email" type="email" class="form-control" name="email" required>
                                     <div class="invalid-feedback">
                                         Your email is invalid.
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" required data-eye>
-                                    <div class="invalid-feedback">
-                                        Password is required
                                     </div>
                                 </div>
 
@@ -92,7 +92,7 @@
 
                                 <div class="form-group">
                                     <label for="bio">Description</label>
-                                    <input id="bio" type="textarea" class="form-control" name="bio" required data-eye>
+                                    <input id="bio" type="textarea" row="500" class="form-control" name="bio" required data-eye>
                                     <div class="invalid-feedback">
                                         Must enter in bio
                                     </div>
@@ -116,17 +116,6 @@
             </div>
         </div>
     </section>
-    <div id="affiliated-companies">
-        <h4>Candidates hired by...</h4>
-        <div>
-            <img class="image" src="https://lh3.googleusercontent.com/proxy/0y9VhzXXpIlZdE1KiGOx_fBJwJAb1TkmBRVXmboh3GxEghwmwcf0CT3_itpLg4vwN2WlSw75XcCQrMorTwYkgzqAZ33A5KtTEvfSURX3NHCXJkMSkDP8mgzyUlIUYEr5c_f1eg" alt="microsoft">
-            <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/368px-Google_2015_logo.svg.png" alt="google">
-            <img id="apple" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/862px-Apple_logo_grey.svg.png" alt="apple">
-            <img class="image" src="https://www.logo.wine/a/logo/Instagram/Instagram-Logo.wine.svg" alt="instagram">
-            <img id="spotify" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png" alt="spotify">
-            <img id="starbucks" src="https://upload.wikimedia.org/wikipedia/sco/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1017px-Starbucks_Corporation_Logo_2011.svg.png" alt="starbucks">
-        </div>
-    </div>
 </main>
 <footer th:replace="fragments/footer :: foot-fragment">
 </footer>

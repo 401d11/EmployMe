@@ -6,8 +6,8 @@ body {
 #main-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 6em;
+    justify-content: space-around;
+    height: 2.6em;
     padding: 2em;
     margin-bottom: 2em;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -25,5 +25,5 @@ body {
 #main-header ul li {
     display: inline;
     margin-right: 1em;
-    font-size: 2em
+    font-size: 1.2em
 }

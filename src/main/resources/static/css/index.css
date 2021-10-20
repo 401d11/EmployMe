@@ -51,7 +51,8 @@ body {
 #blurb-one p, #blurb-two p{
     font-size: 1em;
     padding: 2em;
-    font-family: sans-serif
+    font-family: sans-serif;
+    line-height: 1.5em;
 }
 
 #affiliated-companies {
@@ -59,6 +60,13 @@ body {
     align-items: center;
     flex-direction: column;
     margin-bottom: 20em
+}
+
+#affiliated-pictures1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
 }
 
 #affiliated-companies div{
@@ -70,17 +78,45 @@ body {
     font-size: 2em;
 }
 
-#affiliated-companies img {
+#affiliated-companies .image {
     width: 200px;
     display: block
 }
 
-#apple, #spotify, #starbucks {
-    width: 90px;
+#apple {
+    width: 75px;
+    display: block
 }
 
-#affiliated-companies div {
+#starbucks, #spotify, #instagram {
+    width: 100px;
+    display: block;
+}
+
+#mission-statement {
     display: flex;
     align-items: center;
-    justify-content: space-evenly
+    flex-direction: column;
+    width: 1000px;
+    padding: 1.5em 5em 1.5em 5em;
+    border: 3px solid purple;
+    border-radius: 15px;
+    margin-bottom: 10em;
+}
+
+#mission-statement h6{
+    font-size: 1em;
+    font-weight: bold;
+    color: #9135FF;
+}
+
+#mission-statement h2{
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1.5em;
+}
+
+#mission-statement p{
+    font-size: .8em;
+    text-align: center;
 }
