@@ -30,32 +30,27 @@ The application is hosted on [Heroku](https://www.heroku.com/) with a remote dat
 
 ### 1. Index
 
-
-<img src= "./assets/index.png" alt="drawing" width="200"/>
-
-
-
-![Index](./assets/index.png){:height="250px" width="250px"}
+<img src= "./assets/index.png" alt="index.html wireframe" width="350"/>
 
 ### 2. Sign Up
 
-![Sign Up](./assets/signup.png)
+<img src= "./assets/signup.png" alt="signup.html wireframe" width="350"/>
 
 ### 3. Login
 
-![Login](./assets/login.png)
+<img src= "./assets/login.png" alt="login.html wireframe" width="350"/>
 
 ### 4. Discover
 
-![Disover](./assets/discover.png)
+<img src= "./assets/discover.png" alt="discover.html wireframe" width="350"/>
 
 ### 5. Business Profile
 
-![Business Profile](./assets/profileBusiness.png)
+<img src= "./assets/profileBusiness.png" alt="business profile wireframe" width="350"/>
 
 ### 6. Candidate Profile
 
-![Database](./assets/profileCandidate.png)
+<img src= "./assets/profileCandidate.png" alt="candidate profile wireframe" width="350"/>
 
 ## User Stories
 
