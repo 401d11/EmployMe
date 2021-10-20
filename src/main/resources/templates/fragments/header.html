@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body {
+            font-family:
+        }
+    </style>
+    <link rel="stylesheet" href="css/header.css">
     <meta charset="UTF-8">
     <title>Fragments Container</title>
 </head>
@@ -9,16 +15,16 @@
 <nav id="main-header" th:fragment="main-header">
     <div>
         <img src="images/employ.png" alt="employMee logo">
-        <h3>_employMee()</h3>
     </div>
     
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/discover">Discover</a></li>
         <li th:if="${currentAccount != null}"><a href="/profile">My Profile</a></li>
-        <li><a href="/login">Log In</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <li th:if="${username == null}"><a href="/login">Log In</a></li>
+        <li th:if="${username == null}"><a href="/signup">Signup</a></li>
         <li><a href="/aboutus">About Us</a></li>
+        <li th:if="${username != null}"><a href="/logout">Logout</a></li>
     </ul>
 </nav>
 </body>

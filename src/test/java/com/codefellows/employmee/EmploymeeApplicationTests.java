@@ -44,7 +44,7 @@ class EmploymeeApplicationTests {
 	@Test
 	public void routePost() throws Exception {
 		mockMvc.perform(post("/")
-						.contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+//						.contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 						.param("title", "Album Title"))
 				.andExpect(content().string(containsString("the response text")));
 	}

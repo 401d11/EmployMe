@@ -1,26 +1,11 @@
 html,body {
-	height: 100vh;
+	/*height: 100vh;*/
 	font-family: sans-serif;
 }
 
 body.my-login-page {
 	background-color: #f7f9fb;
 	font-size: 14px;
-}
-
-.my-login-page .brand {
-	width: 90px;
-	height: 90px;
-	overflow: hidden;
-	border-radius: 50%;
-	margin: 40px auto;
-	box-shadow: 0 4px 8px rgba(0,0,0,.05);
-	position: relative;
-	z-index: 1;
-}
-
-.my-login-page .brand img {
-	width: 100%;
 }
 
 .my-login-page .card-wrapper {

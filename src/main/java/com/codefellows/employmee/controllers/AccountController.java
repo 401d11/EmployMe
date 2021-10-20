@@ -61,7 +61,11 @@ public class AccountController {
     public String getLoginPage() {return "login.html";}
 
     @GetMapping("/aboutus")
-    public String getAboutUsPage() {return "aboutus.html";}
+    public String getAboutUsPage(Principal p, Model m) {
+        if(p != null){
+            m.addAttribute("username", p.getName());
+        }
+        return "aboutus.html";}
 
     @GetMapping("/signup")
     public String getSignupPage() {return "signup.html";}
@@ -76,6 +80,8 @@ public class AccountController {
     public String getCandidateByLanguage(Principal p, Model m, String language) {
         if (p != null) {
             Account currentAccount = accountRepository.findByUsername(p.getName());
+            m.addAttribute("username", p.getName());
+            m.addAttribute("isBusiness", currentUser.isBusiness());
             Set<Account> personalAccountCandidates = currentAccount.getCandidates();
             List<Candidate> listOfCandidates = new ArrayList<>();
             for(Account candidate: personalAccountCandidates){
