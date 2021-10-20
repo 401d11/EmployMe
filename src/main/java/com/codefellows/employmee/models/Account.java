@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -106,5 +107,18 @@ public class Account implements UserDetails {
 
     public boolean isBusiness() {
         return isBusiness;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return id.equals(account.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

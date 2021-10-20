@@ -25,6 +25,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.*;
 import java.security.Principal;
 import com.sendgrid.*;
 import static com.codefellows.employmee.models.Message.sendEmail;
@@ -72,7 +73,17 @@ public class AccountController {
     public String getSignupBusinessPage() {return "signupBusiness.html";}
 
     @GetMapping("/discover")
-    public String getCandidateByLanguage(Model m, String language) {
+    public String getCandidateByLanguage(Principal p, Model m, String language) {
+        if (p != null) {
+            Account currentAccount = accountRepository.findByUsername(p.getName());
+            Set<Account> personalAccountCandidates = currentAccount.getCandidates();
+            List<Candidate> listOfCandidates = new ArrayList<>();
+            for(Account candidate: personalAccountCandidates){
+                Candidate currentCandidate = (Candidate) candidate;
+                listOfCandidates.add(currentCandidate);
+            }
+            m.addAttribute("personalAccountCandidates", listOfCandidates);
+        }
         List<Account> filteredCandidates = accountRepository.findAll().stream().filter(s -> ! s.isBusiness()).collect(toList());
         List<Candidate> candidateList = new ArrayList<>();
         for(Account candidate: filteredCandidates){
@@ -145,14 +156,12 @@ public class AccountController {
         }
         Candidate candidateAccount = (Candidate) accountRepository.findById(candidateId).orElseThrow();
         Business businessAccount = (Business) accountRepository.findByUsername(p.getName());
-
         Message newMessage = new Message(jobTitle, jobDescription, salaryRange, startingDate, jobType, jobLocation);
         String newString = "Dear " + candidateAccount.getFirstname() + ",\nEmployMee is happy to inform you that " +
                 businessAccount.getCompanyName() +
-                " has contacted us about a job opportunity for you. Please look below for details and TODO.\n\n" +
+                " has contacted us about a job opportunity for you. Please look below for details and reply to us at: employmeecandidatehelper@gmail.com\n\n" +
                 newMessage.toString();
         sendEmail(candidateAccount.getEmail(), newMessage.getJobTitle(), newString);
-
         businessAccount.getCandidates().add(candidateAccount);
         accountRepository.save(businessAccount);
         return new RedirectView("/profile");
