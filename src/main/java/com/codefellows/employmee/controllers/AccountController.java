@@ -154,6 +154,8 @@ public class AccountController {
 
     @GetMapping("/connect")
     public String getConnect(Principal p, Model m, Long candidateId) {
+        Account currentAccount = accountRepository.findByUsername(p.getName());
+        m.addAttribute("currentAccount", currentAccount);
         m.addAttribute("candidateId", candidateId);
         return "connect.html";
     }
@@ -192,7 +194,6 @@ public class AccountController {
 
     @DeleteMapping("/remove-candidate")
     public RedirectView removeCandidate(Principal p, Long candidateId) {
-        System.out.println(candidateId);
         Account deleteThisAccount = accountRepository.getById(candidateId);
         Account currentAccount = accountRepository.findByUsername(p.getName());
         currentAccount.getCandidates().removeIf(s -> s.getId().equals(candidateId));
