@@ -55,6 +55,9 @@ public class AccountController {
     @GetMapping("/login")
     public String getLoginPage() {return "login.html";}
 
+    @GetMapping("/aboutus")
+    public String getAboutUsPage() {return "aboutus.html";}
+
     @GetMapping("/signup")
     public String getSignupPage() {return "signup.html";}
 
