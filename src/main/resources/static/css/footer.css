@@ -9,3 +9,8 @@ footer {
  padding: 2em;
 }
 
+footer img {
+    width: 50px;
+    border-radius: 5px;
+}
+
