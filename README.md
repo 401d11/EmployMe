@@ -1,19 +1,11 @@
 # _employMee()
 
-**Authors**: 
-<span>
-##### Jenner Dulce
-[<img src= "./assets/jenner.jpeg" alt="jenner profile pic" width="150"/>](https://github.com/jennerdulce)
+**Authors**:
 
-##### Haustin Kimbrough
-[<img src= "./assets/haustin.png" alt="haustin profile pic" width="150"/>](https://github.com/hkimbrough22)
-
-##### Patrick Laurion
-[<img src= "./assets/patrick.jpeg" alt="patrick profile pic" width="150"/>](https://github.com/plaurion1989)
-
-##### Matt Cho
-[<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
-</span>
+Jenner Dulce [<img src= "./assets/jenner.jpeg" alt="jenner profile pic" width="150"/>](https://github.com/jennerdulce)
+Haustin Kimbrough [<img src= "./assets/haustin.png" alt="haustin profile pic" width="150"/>](https://github.com/hkimbrough22)
+Patrick Laurion [<img src= "./assets/patrick.jpeg" alt="patrick profile pic" width="150"/>](https://github.com/plaurion1989)
+Matt Cho [<img src= "./assets/matt.jpeg" alt="matt profile pic" width="150"/>](https://github.com/MattyCho)
 
 **Version**: 1.0.0
 
