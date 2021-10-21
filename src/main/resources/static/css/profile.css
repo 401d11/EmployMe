@@ -18,6 +18,17 @@ main {
     margin: 0 2em 2em 2em;
 }
 
+.card-body {
+    min-height: 300px;
+    max-height: 300px;
+}
+
+#candidate-bio {
+    height: 250px;
+    overflow: auto;
+}
+
+
 #business-account {
     float: left;
     background-color: #ccc;
