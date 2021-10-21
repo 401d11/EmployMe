@@ -24,10 +24,6 @@ main {
     justify-content: space-around
 }
 
-#bio {
-    height: 500px
-}
-
 .card-image {
     display: block;
     width: 500px;

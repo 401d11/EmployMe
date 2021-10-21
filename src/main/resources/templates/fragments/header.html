@@ -8,12 +8,10 @@
 <body>
 
 <nav id="main-header" th:fragment="main-header">
-<!--    <div>-->
-<!--        <img id="header-image" src="images/employ.png" alt="employMee logo">-->
-<!--    </div>-->
-    <h1 id="header-text">_employMee()</h1>
-    
-    <ul>
+    <div id="header-image-container">
+        <img id="header-image" src="/images/employ.png" alt="employMee logo">
+    </div>
+    <ul id="nav-list">
         <li><a href="/">Home</a></li>
         <li th:if="${currentAccount != null}"><a href="/discover" >Discover</a></li>
         <li th:if="${currentAccount != null}"><a href="/profile">My Profile</a></li>

@@ -4,11 +4,15 @@ body {
 }
 
 main {
-    height: 100%
+    margin-bottom: 25em;
+    min-height: 30em
 }
 
 #cardDiv {
+    margin: auto;
     display: flex;
+    width: 1500px;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 .card {
@@ -17,8 +21,6 @@ main {
 
 #discover-form {
     display: block;
-    margin: auto;
-    width: 100%;
     background-color: #fff;
     margin-bottom: 3em;
 }
@@ -32,3 +34,10 @@ main {
     height: 200px;
     overflow: auto;
 }
+
+#search-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%
+}
+
