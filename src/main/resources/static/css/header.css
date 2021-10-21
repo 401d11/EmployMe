@@ -16,9 +16,9 @@ header {
     margin-bottom: 100px;
 }
 
-#main-header h3 {
+#header-text {
     list-style-type: none;
-    font-size: calc(1.3rem + .6vw);
+    font-size: 2em
 }
 
 #main-header ul {
