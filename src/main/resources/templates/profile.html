@@ -37,7 +37,7 @@
                         <h6 class="bio-title" >Language: </h6>
                         <p th:text="${candidate.language}"></p>
                         <h6 class="bio-title" >Candidate Bio: </h6>
-                        <p th:text="${candidate.bio}"></p>
+                        <p id="candidate-bio" th:text="${candidate.bio}"></p>
                         <form action="/remove-candidate" th:method="DELETE">
                             <input type="hidden" th:value="${candidate.id}" name="candidateId">
                             <input type="submit" value="Remove this candidate">
