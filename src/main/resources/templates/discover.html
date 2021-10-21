@@ -20,25 +20,27 @@
     <nav th:replace="fragments/header :: main-header"></nav>
 </header>
 <main th:if="${isBusiness}">
-    <h3>Primary Language</h3>
-        <form id="discover-form" action="/discover" method="get">
-            <div class="form-group">
-                <select name="language" id="language">
-                    <option value="C++">C++</option>
-                    <option value="C#">C#</option>
-                    <option value="Java">Java</option>
-                    <option value="JavaScript">JavaScript
-                    <option value="Python">Python</option>
-                    <option value="R">R</option>
-                    <option value="Ruby">Ruby</option>
-                    <option value="Swift">Swift</option>
-                </select>
-                <input type="submit" value="Find Candidates">
-                <div class="invalid-feedback">
-                    Must enter a primary language.
+    <div id="search-info">
+            <h3>Primary Language</h3>
+            <form id="discover-form" action="/discover" method="get">
+                <div class="form-group">
+                    <select name="language" id="language">
+                        <option value="C++">C++</option>
+                        <option value="C#">C#</option>
+                        <option value="Java">Java</option>
+                        <option value="JavaScript">JavaScript
+                        <option value="Python">Python</option>
+                        <option value="R">R</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="Swift">Swift</option>
+                    </select>
+                    <input type="submit" value="Find Candidates">
+                    <div class="invalid-feedback">
+                        Must enter a primary language.
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+    </div>
     <div id="cardDiv">
         <div th:each="candidate : ${filteredCandidates}">
             <div class="card" style="width: 25rem;" action="/recruitForm" method="get">

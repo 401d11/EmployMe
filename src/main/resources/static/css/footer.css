@@ -7,6 +7,14 @@
     background-color: #eee
 }
 
+.footer-column li{
+    list-style-type: none
+}
+
+.footer-column ul{
+    list-style-type: none
+}
+
 footer {
  padding: 2em;
 }
@@ -23,9 +31,16 @@ footer img {
 }
 
 
-#footer-address h2 {
+#footer-address #footer-title h2 {
     font-size: 2em;
+    margin-bottom: .5em
 }
+
+#footer-address #footer-address-info {
+    font-size: 1em;
+    line-height: 1.6em
+}
+
 
 #footer-address p {
     font-size: 1em;

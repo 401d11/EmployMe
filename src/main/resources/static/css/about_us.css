@@ -45,10 +45,14 @@ html {
   color: grey;
 }
 
-img {
-    border-radius: 50%;
+.developer-picture {
     margin: auto;
     margin-top: 2em;
+}
+
+.qr-pic {
+    display: block;
+    margin: auto
 }
 
 
