@@ -55,6 +55,14 @@ body {
     line-height: 1.5em;
 }
 
+#blurb-one div{
+    padding-right: 2em;
+}
+
+#blurb-two p{
+    margin-left: 2em;
+}
+
 #affiliated-companies {
     display: flex;
     align-items: center;
@@ -119,4 +127,15 @@ body {
 #mission-statement p{
     font-size: .8em;
     text-align: center;
+    width: 250px;
+}
+
+.page-info, #page-slogan {
+    text-align: center;
+    width: 700px;
+}
+
+#blurb-one #page-slogan {
+    font-size: 1.4em;
+    font-style: italic;
 }
