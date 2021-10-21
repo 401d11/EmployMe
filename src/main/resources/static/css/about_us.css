@@ -32,7 +32,7 @@ html {
 }
 
 .container {
-  padding: 0 16px;
+  padding: 2em;
 }
 
 .container::after, .row::after {
@@ -48,6 +48,7 @@ html {
 img {
     border-radius: 50%;
     margin: auto;
+    margin-top: 2em;
 }
 
 

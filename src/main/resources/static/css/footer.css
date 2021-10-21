@@ -1,4 +1,6 @@
 #footer-fragment {
+    clear: both;
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;

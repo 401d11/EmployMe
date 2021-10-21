@@ -1,5 +1,10 @@
 body {
-    font-family: sans-serif
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+main {
+    height: 100%
 }
 
 #cardDiv {
@@ -11,6 +16,19 @@ body {
 }
 
 #discover-form {
+    display: block;
     margin: auto;
-    background-color: #fff
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 3em;
+}
+
+.card-body {
+    width: 380px;
+    height: 440px;
+}
+
+.card-body p {
+    height: 200px;
+    overflow: auto;
 }

@@ -1,3 +1,12 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+main {
+    height: 60%
+}
+
 #cardDiv {
     display: flex;
     flex-wrap: wrap;
@@ -5,5 +14,16 @@
 
 .card {
     display: flex;
-    margin: 10px;
+    margin: 0 2em 2em 2em;
+}
+
+#business-account {
+    float: left;
+    background-color: #ccc;
+    padding: 2em;
+}
+
+.bio-title {
+    margin-top: .6em;
+    margin-bottom: .6em;
 }
