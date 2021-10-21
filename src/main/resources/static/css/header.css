@@ -4,20 +4,16 @@ body {
 }
 
 header {
-       background-color: black;
-       height: 100px;
-       padding: 25px;
-       margin-bottom: 65px;
+    background-color: black;
 }
 
 #main-header {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 2em;
-    margin-bottom: 2em;
-
+    height: 100px;
     font-family: 'Nunito Sans', sans-serif;
+    margin-bottom: 100px;
 }
 
 #main-header h3 {
@@ -35,15 +31,11 @@ header {
     font-size: 1.2em;
 }
 
-header img {
-    border-radius: 50%;
+#header-img {
+    display: block;
+    width: 50px;
 }
 
-img {
-    padding-top: 25px;
-    width: 150px;
-    display: block;
-}
 
 a, a:visited, a:active {
     color: gray;

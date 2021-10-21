@@ -27,3 +27,27 @@ main {
 #bio {
     height: 500px
 }
+
+.card-image {
+    display: block;
+    width: 500px;
+    margin-bottom: 2em;
+}
+
+.card-container {
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 20em;
+}
+
+.card-container p {
+    text-align: center
+
+}
+
+.card-container a {
+    display: block;
+    margin: auto;
+    color: white;
+}

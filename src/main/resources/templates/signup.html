@@ -24,26 +24,25 @@
         <h3>Are you signing up as a business looking to hire? or are you looking to be a candidate for future job opportunities?</h3>
         <div id="signup-choices">
 
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3272&q=80" class="card-img-top" alt="...">
-                <div class="card-body">
-<!--                    <h5 class="card-title">Card title</h5>-->
+            <div class="card-container">
+                <img class="card-image" src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3272&q=80" alt="...">
+                <div>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="/signup/business" class="btn btn-primary">Sign up as a Business</a>
+                    <a href="/signup/business" class="btn btn-secondary">Sign up as a Business</a>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3272&q=80" class="card-img-top" alt="...">
-                <div class="card-body">
-<!--                    <h5 class="card-title">Card title</h5>-->
+            <div class="card-container">
+                <img class="card-image" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3272&q=80" alt="...">
+                <div>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="/signup/candidate" class="btn btn-primary">Sign up as a Candidate</a>
+                    <a href="/signup/candidate" class="btn btn-secondary">Sign up as a Candidate</a>
                 </div>
             </div>
 
         </div>
     </div>
 </main>
-<footer></footer>
+<footer th:replace="fragments/footer :: foot-fragment">
+</footer>
 </body>
 </html>
