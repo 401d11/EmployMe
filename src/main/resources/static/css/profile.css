@@ -22,6 +22,7 @@ main {
     float: left;
     background-color: #ccc;
     padding: 2em;
+    margin-left: 3em;
 }
 
 .bio-title {
