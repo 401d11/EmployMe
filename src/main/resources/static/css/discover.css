@@ -2,6 +2,14 @@ body {
     font-family: sans-serif
 }
 
+#cardDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+    margin: 10px;
+}
+
 #discover-form {
     margin: auto;
     background-color: #fff

@@ -37,18 +37,20 @@
         <input type="submit" value="Find Candidates">
     </form>
 
-    <div th:each="candidate : ${filteredCandidates}">
-        <div class="card" style="width: 25rem;" action="/recruitForm" method="get">
-            <div class="card-body">
-                <h3 th:text="${'ID: ' + candidate.id}"></h3>
-                <h3 th:text="${'Primary Programming Language: ' + candidate.language}"></h3>
-                <h3 th:text="${'Years of Experience: ' + candidate.yearsOfExperience}"></h3>
-                <p th:text="${'Bio: ' + candidate.bio}"></p>
+    <div id="cardDiv">
+        <div th:each="candidate : ${filteredCandidates}">
+            <div class="card" style="width: 25rem;" action="/recruitForm" method="get">
+                <div class="card-body">
+                    <h3 th:text="${'ID: ' + candidate.id}"></h3>
+                    <h3 th:text="${'Primary Programming Language: ' + candidate.language}"></h3>
+                    <h3 th:text="${'Years of Experience: ' + candidate.yearsOfExperience}"></h3>
+                    <p th:text="${'Bio: ' + candidate.bio}"></p>
 
-                <form action="/connect" method="GET">
-                    <input type="hidden" th:value="${candidate.id}" name="candidateId">
-                    <input th:if="${personalAccountCandidates.contains(candidate) == false}" type="submit" value="Contact this Candidate!">
-                </form>
+                    <form action="/connect" method="GET">
+                        <input type="hidden" th:value="${candidate.id}" name="candidateId">
+                        <input th:if="${personalAccountCandidates.contains(candidate) == false}" type="submit" value="Contact this Candidate!">
+                    </form>
+                </div>
             </div>
         </div>
     </div>

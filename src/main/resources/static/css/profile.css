@@ -1,0 +1,9 @@
+#cardDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    margin: 10px;
+}
