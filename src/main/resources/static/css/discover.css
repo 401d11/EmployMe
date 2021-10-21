@@ -41,3 +41,8 @@ main {
     width: 10%
 }
 
+#not-loggedin {
+    width: 20%;
+    text-align: center;
+    margin: auto;
+}

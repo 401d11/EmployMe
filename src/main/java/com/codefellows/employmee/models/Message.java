@@ -62,8 +62,8 @@ public class Message {
 
     @Override
     public String toString() {
-        String string = "Job Title: " + jobTitle +
-                "\nJob Description: " + jobDescription +
+        String string = "Job Title: \n" + jobTitle +
+                "\nJob Description: \n" + jobDescription +
                 "\nSalary Range: " + salaryRange +
                 "\nStarting Date: " + startingDate +
                 "\nJob Type: " + jobType +
