@@ -9,7 +9,7 @@ main {
 }
 
 #signup-main {
-    margin: auto;
+    width: 1400px;
     margin-top: 10em;
 }
 
@@ -19,9 +19,10 @@ main {
 }
 
 #signup-choices {
+
     display: flex;
     align-items: center;
-    justify-content: space-around
+    justify-content: space-between;
 }
 
 .card-image {
