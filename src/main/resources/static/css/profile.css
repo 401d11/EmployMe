@@ -19,12 +19,11 @@ main {
 }
 
 .card-body {
-    min-height: 300px;
-    max-height: 300px;
+    height: 450px;
 }
 
 #candidate-bio {
-    height: 250px;
+    height: 230px;
     overflow: auto;
 }
 
